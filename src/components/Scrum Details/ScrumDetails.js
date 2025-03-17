@@ -11,7 +11,6 @@ const ScrumDetails = ({ scrum }) => {
     const { user } = useContext(UserContext);
     const history = useHistory();
 
-    // Define checkUser as a regular function (not memoized)
     const checkUser = () => {
         const loggedInUser = JSON.parse(localStorage.getItem('user'));
         if (!loggedInUser) {
@@ -19,11 +18,10 @@ const ScrumDetails = ({ scrum }) => {
         }
     };
 
-    // Call checkUser inside useEffect
     useEffect(() => {
         checkUser();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [history]); // Disable the warning for this line
+    }, [history]); 
 
     useEffect(() => {
         if (!scrum.id) return;
